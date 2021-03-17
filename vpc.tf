@@ -57,7 +57,7 @@ resource "aws_route_table" "route_VPC_A_public-pb"{
 		gateway_id = var.VPC_A_defaultGTWpublics
 	}
 }
-resource "aws_route_table" "route_VPC_A_public-pv"{
+resource "aws_route_table" "route_VPC_A_private-pv"{
 	vpc_id = aws_vpc.VPC_A.id
 	
 	route {
@@ -145,7 +145,7 @@ resource "aws_route_table" "route_VPC_B_public-pb"{
 		gateway_id = var.VPC_B_defaultGTWpublics
 	}
 }
-resource "aws_route_table" "route_VPC_B_public-pv"{
+resource "aws_route_table" "route_VPC_B_private-pv"{
 	vpc_id = aws_vpc.VPC_B.id
 	
 	route {
@@ -233,7 +233,7 @@ resource "aws_route_table" "route_VPC_C_public-pb"{
 		gateway_id = var.VPC_C_defaultGTWpublics
 	}
 }
-resource "aws_route_table" "route_VPC_C_public-pv"{
+resource "aws_route_table" "route_VPC_C_private-pv"{
 	vpc_id = aws_vpc.VPC_C.id
 	
 	route {
@@ -252,7 +252,7 @@ resource "aws_route_table_association" "Public_association_VPC_C" {
 
 resource "aws_route_table_association" "Private_association_VPC_C" {
   subnet_id      = aws_subnet.VPC_C_subnet-pv.id
-  route_table_id = aws_route_table.route_VPC_C_private-pb.id
+  route_table_id = aws_route_table.route_VPC_C_private-pv.id
 }
 ###############################################################
 #FIM DO PROVISIONAMENTO: VPC_C
