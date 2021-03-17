@@ -7,6 +7,9 @@ variable "region" {
 variable "dnsSupport" {
 	default = "true"
 }
+variable "aws_availability_zone" {
+	default = "us-east-1a"
+}
 variable "dnsHostNames" {
 	default = "true"
 }
