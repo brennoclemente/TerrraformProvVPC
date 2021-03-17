@@ -75,12 +75,6 @@ resource "aws_route_table_association" "Private_association" {
 
 
 
-#######################################################
-
-
-
-
-
 
 
 

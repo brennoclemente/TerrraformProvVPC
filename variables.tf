@@ -52,3 +52,22 @@ variable "egressCIDRblock" {
 #variable "mapPublicIP" {
 #    default = true
 #}
+
+
+
+
+
+
+
+
+#Variaveis de gestão
+
+variable "chaveacesso" {
+	description = "Digitar a access key"
+	type = string
+}
+
+variable "chavesecreta" {
+	description = "Digitar a secret key"
+	type = string
+}
