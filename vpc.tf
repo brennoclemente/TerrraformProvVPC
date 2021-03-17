@@ -227,8 +227,7 @@ tags = {
 #################################################################
 resource "aws_route_table" "route_VPC_C_public-pb"{
 	vpc_id = aws_vpc.VPC_C.id
-	destination_cidr_block = var.publicdestCIDRblock
-	
+		
 	route {
 		cidr_block = var.VPC_C_publicsCIDRblock
 		gateway_id = var.VPC_C_defaultGTWpublics
