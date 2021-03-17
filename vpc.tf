@@ -53,7 +53,7 @@ resource "aws_route_table" "route_VPC_A_public-pb"{
 	vpc_id = aws_vpc.VPC_A.id
 	
 	route {
-		destination_cidr_block = var.VPC_A_publicsCIDRblock
+		#destination_cidr_block = var.VPC_A_publicsCIDRblock
 		gateway_id = var.VPC_A_defaultGTWpublics
 	}
 }
@@ -61,7 +61,7 @@ resource "aws_route_table" "route_VPC_A_private-pv"{
 	vpc_id = aws_vpc.VPC_A.id
 	
 	route {
-		destination_cidr_block = var.VPC_A_privatesCIDRblock
+		#destination_cidr_block = var.VPC_A_privatesCIDRblock
 		gateway_id = var.VPC_A_defaultGTWprivates
 	}
 }
