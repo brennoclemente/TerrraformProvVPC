@@ -155,6 +155,7 @@ resource "aws_route_table" "route_VPC_B_public-pv"{
 }
 #######################################################
 #ASSOCIAÇÃO DAS TABELAS DE ROTEAMENTO AS SUBREDES
+#######################################################
 resource "aws_route_table_association" "Public_association" {
   subnet_id      = aws_subnet.VPC_B_subnet-pb.id
   route_table_id = aws_route_table.route_VPC_B_public-pb.id
@@ -242,6 +243,7 @@ resource "aws_route_table" "route_VPC_C_public-pv"{
 }
 #######################################################
 #ASSOCIAÇÃO DAS TABELAS DE ROTEAMENTO AS SUBREDES
+#######################################################
 resource "aws_route_table_association" "Public_association" {
   subnet_id      = aws_subnet.VPC_C_subnet-pb.id
   route_table_id = aws_route_table.route_VPC_C_public-pb.id
