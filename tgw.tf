@@ -52,4 +52,33 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-att-vpc-3" {
   }
   depends_on = ["aws_ec2_transit_gateway.tgw-vpc-main"]
 }
-###
+
+
+# Route Tables
+
+resource "aws_ec2_transit_gateway_route_table" "tgw-public-main" {
+  transit_gateway_id = "${aws_ec2_transit_gateway.tgw-vpc-main.id}"
+  tags               = {
+    Name             = "tgw-vpc-main"
+    scenario         = "${var.scenario}"
+  }
+  depends_on = ["aws_ec2_transit_gateway.tgw-vpc-main"]
+}
+
+resource "aws_ec2_transit_gateway_route_table" "tgw-private-rt" {
+  transit_gateway_id = "${aws_ec2_transit_gateway.tgw-vpc-main.id}"
+  tags               = {
+    Name             = "tgw-private-rt"
+    scenario         = "${var.scenario}"
+  }
+  depends_on = ["aws_ec2_transit_gateway.tgw-vpc-main"]
+}
+
+resource "aws_ec2_transit_gateway_route_table" "tgw-dmz-rt" {
+  transit_gateway_id = "${aws_ec2_transit_gateway.tgw-vpc-main.id}"
+  tags               = {
+    Name             = "tgw-dmz-rt"
+    scenario         = "${var.scenario}"
+  }
+  depends_on = ["aws_ec2_transit_gateway.tgw-vpc-main"]
+}
