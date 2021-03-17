@@ -52,3 +52,4 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-att-vpc-3" {
   }
   depends_on = ["aws_ec2_transit_gateway.tgw-vpc-main"]
 }
+###
