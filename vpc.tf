@@ -68,13 +68,13 @@ resource "aws_route_table" "route_VPC_A_public-pv"{
 ##############################################################
 #ASSOCIAÇÃO DAS TABELAS DE ROTEAMENTO AS SUBREDES
 ##############################################################
-resource "aws_route_table_association" "Public_association" {
+resource "aws_route_table_association" "Public_association_VPC_A" {
   subnet_id      = aws_subnet.VPC_A_subnet-pb.id
   route_table_id = aws_route_table.route_VPC_A_public-pb.id
 }
 
 
-resource "aws_route_table_association" "Private_association" {
+resource "aws_route_table_association" "Private_association_VPC_A" {
   subnet_id      = aws_subnet.VPC_A_subnet-pv.id
   route_table_id = aws_route_table.route_public.id
 }
@@ -156,13 +156,13 @@ resource "aws_route_table" "route_VPC_B_public-pv"{
 #######################################################
 #ASSOCIAÇÃO DAS TABELAS DE ROTEAMENTO AS SUBREDES
 #######################################################
-resource "aws_route_table_association" "Public_association" {
+resource "aws_route_table_association" "Public_association_VPC_B" {
   subnet_id      = aws_subnet.VPC_B_subnet-pb.id
   route_table_id = aws_route_table.route_VPC_B_public-pb.id
 }
 
 
-resource "aws_route_table_association" "Private_association" {
+resource "aws_route_table_association" "Private_association_VPC_B" {
   subnet_id      = aws_subnet.VPC_B_subnet-pv.id
   route_table_id = aws_route_table.route_public.id
 }
@@ -244,13 +244,13 @@ resource "aws_route_table" "route_VPC_C_public-pv"{
 #######################################################
 #ASSOCIAÇÃO DAS TABELAS DE ROTEAMENTO AS SUBREDES
 #######################################################
-resource "aws_route_table_association" "Public_association" {
+resource "aws_route_table_association" "Public_association_VPC_C" {
   subnet_id      = aws_subnet.VPC_C_subnet-pb.id
   route_table_id = aws_route_table.route_VPC_C_public-pb.id
 }
 
 
-resource "aws_route_table_association" "Private_association" {
+resource "aws_route_table_association" "Private_association_VPC_C" {
   subnet_id      = aws_subnet.VPC_C_subnet-pv.id
   route_table_id = aws_route_table.route_public.id
 }
