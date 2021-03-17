@@ -164,7 +164,7 @@ resource "aws_route_table_association" "Public_association_VPC_B" {
 
 resource "aws_route_table_association" "Private_association_VPC_B" {
   subnet_id      = aws_subnet.VPC_B_subnet-pv.id
-  route_table_id = aws_route_table.route_public.id
+  route_table_id = aws_route_table.route_VPC_B_private-pb.id
 }
 ###############################################################
 #FIM DO PROVISIONAMENTO: VPC_B
