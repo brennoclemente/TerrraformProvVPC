@@ -3,3 +3,6 @@ provider "aws" {
 	access_key = "${var.chaveacesso}" 
 	secret_key = "${var.chavesecreta}"
 }
+#
+#
+#
