@@ -10,7 +10,7 @@ variable "dnsSupport" {
 variable "dnsHostNames" {
 	default = "true"
 }
-variable "instaceTenancy" {
+variable "instanceTenancy" {
 	default = "default"
 }
 variable "availabilityZone" {
