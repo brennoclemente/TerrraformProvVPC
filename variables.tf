@@ -14,7 +14,7 @@ variable "instanceTenancy" {
 	default = "default"
 }
 variable "availabilityZone" {
-  type    = string
+  type    = list
   default = ["us-east-1a","us-east-1b","us-east-1cus-east-1dus-east-1e","us-east-1f"]
 }
 variable "chaveacesso" {
