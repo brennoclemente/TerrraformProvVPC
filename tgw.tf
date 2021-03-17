@@ -30,7 +30,7 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-att-vpc-1" {
 }
 
 resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-att-vpc-2" {
-  subnet_ids         = ["${aws_subnet.vpc-2-sub-a.id}", "${aws_subnet.vpc-2-sub-b.id}"]
+  subnet_ids         = ["${aws_subnet.VPC_B_publicsCIDRblock.id}", "${aws_subnet.VPC_B_privatesCIDRblock.id}", "${aws_subnet.VPC_B_dmzCIDRblock.id}"]
   transit_gateway_id = "${aws_ec2_transit_gateway.tgw-vpc-main.id}"
   vpc_id             = "${aws_vpc.VPC_B.id}"
   transit_gateway_default_route_table_association = true
@@ -42,7 +42,7 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-att-vpc-2" {
 }
 
 resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-att-vpc-3" {
-  subnet_ids         = ["${aws_subnet.vpc-3-sub-a.id}", "${aws_subnet.vpc-3-sub-b.id}"]
+  subnet_ids         = ["${aws_subnet.VPC_C_publicsCIDRblock.id}", "${aws_subnet.VPC_C_privatesCIDRblock.id}", "${aws_subnet.VPC_C_dmzCIDRblock.id}"]
   transit_gateway_id = "${aws_ec2_transit_gateway.tgw-vpc-main.id}"
   vpc_id             = "${aws_vpc.VPC_C.id}"
   transit_gateway_default_route_table_association = true
