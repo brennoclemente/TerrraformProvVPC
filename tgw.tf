@@ -109,24 +109,32 @@ resource "aws_ec2_transit_gateway_route_table_propagation" "tgw-rt-public-to-vpc
   transit_gateway_route_table_id = "${aws_ec2_transit_gateway_route_table.tgw-public-rt.id}"
 }
 
-resource "aws_ec2_transit_gateway_route_table_propagation" "tgw-rt-shared-to-vpc-1" {
-  transit_gateway_attachment_id  = "${aws_ec2_transit_gateway_vpc_attachment.tgw-att-vpc-1.id}"
-  transit_gateway_route_table_id = "${aws_ec2_transit_gateway_route_table.tgw-shared-rt.id}"
+resource "aws_ec2_transit_gateway_route_table_propagation" "tgw-rt-private-to-vpc-A" {
+  transit_gateway_attachment_id  = "${aws_ec2_transit_gateway_vpc_attachment.tgw-att-vpc-A.id}"
+  transit_gateway_route_table_id = "${aws_ec2_transit_gateway_route_table.tgw-private-rt.id}"
 }
 
-resource "aws_ec2_transit_gateway_route_table_propagation" "tgw-rt-shared-to-vpc-2" {
-  transit_gateway_attachment_id  = "${aws_ec2_transit_gateway_vpc_attachment.tgw-att-vpc-2.id}"
-  transit_gateway_route_table_id = "${aws_ec2_transit_gateway_route_table.tgw-shared-rt.id}"
+resource "aws_ec2_transit_gateway_route_table_propagation" "tgw-rt-private-to-vpc-B" {
+  transit_gateway_attachment_id  = "${aws_ec2_transit_gateway_vpc_attachment.tgw-att-vpc-B.id}"
+  transit_gateway_route_table_id = "${aws_ec2_transit_gateway_route_table.tgw-private-rt.id}"
 }
 
-resource "aws_ec2_transit_gateway_route_table_propagation" "tgw-rt-shared-to-vpc-4" {
-  transit_gateway_attachment_id  = "${aws_ec2_transit_gateway_vpc_attachment.tgw-att-vpc-4.id}"
-  transit_gateway_route_table_id = "${aws_ec2_transit_gateway_route_table.tgw-shared-rt.id}"
+resource "aws_ec2_transit_gateway_route_table_propagation" "tgw-rt-private-to-vpc-C" {
+  transit_gateway_attachment_id  = "${aws_ec2_transit_gateway_vpc_attachment.tgw-att-vpc-C.id}"
+  transit_gateway_route_table_id = "${aws_ec2_transit_gateway_route_table.tgw-private-rt.id}"
 }
 
-resource "aws_ec2_transit_gateway_route_table_propagation" "tgw-rt-prod-to-vpc-3" {
-  transit_gateway_attachment_id  = "${aws_ec2_transit_gateway_vpc_attachment.tgw-att-vpc-3.id}"
-  transit_gateway_route_table_id = "${aws_ec2_transit_gateway_route_table.tgw-prod-rt.id}"
+resource "aws_ec2_transit_gateway_route_table_propagation" "tgw-rt-dmz-to-vpc-A" {
+  transit_gateway_attachment_id  = "${aws_ec2_transit_gateway_vpc_attachment.tgw-att-vpc-A.id}"
+  transit_gateway_route_table_id = "${aws_ec2_transit_gateway_route_table.tgw-dmz-rt.id}"
 }
 
+resource "aws_ec2_transit_gateway_route_table_propagation" "tgw-rt-dmz-to-vpc-B" {
+  transit_gateway_attachment_id  = "${aws_ec2_transit_gateway_vpc_attachment.tgw-att-vpc-B.id}"
+  transit_gateway_route_table_id = "${aws_ec2_transit_gateway_route_table.tgw-dmz-rt.id}"
+}
+resource "aws_ec2_transit_gateway_route_table_propagation" "tgw-rt-dmz-to-vpc-C" {
+  transit_gateway_attachment_id  = "${aws_ec2_transit_gateway_vpc_attachment.tgw-att-vpc-C.id}"
+  transit_gateway_route_table_id = "${aws_ec2_transit_gateway_route_table.tgw-dmz-rt.id}"
+}
 
