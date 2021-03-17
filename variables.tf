@@ -15,7 +15,7 @@ variable "instanceTenancy" {
 }
 variable "availabilityZone" {
   type    = string
-  default = ["us-east-1"]
+  default = ["us-east-1a"]
 }
 variable "chaveacesso" {
 	description = "Digitar a access key"
