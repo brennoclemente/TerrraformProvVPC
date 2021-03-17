@@ -68,6 +68,10 @@ resource "aws_route_table" "route_VPC_A_private-pv"{
 	#	cidr_block = var.VPC_A_privatesCIDRblock
 		#gateway_id = var.VPC_A_defaultGTWprivates
 	#}
+	
+	tags = {
+    Name = "Roteamento Privado VPC A"
+}
 }
 ##############################################################
 #ASSOCIAÇÃO DAS TABELAS DE ROTEAMENTO AS SUBREDES
@@ -148,6 +152,10 @@ resource "aws_route_table" "route_VPC_B_public-pb"{
 	#	cidr_block = var.VPC_B_publicsCIDRblock
 		#gateway_id = var.VPC_B_defaultGTWpublics
 	#}
+	
+	tags = {
+    Name = "Roteamento Publico VPC B"
+}
 }
 resource "aws_route_table" "route_VPC_B_private-pv"{
 	vpc_id = aws_vpc.VPC_B.id
@@ -156,6 +164,9 @@ resource "aws_route_table" "route_VPC_B_private-pv"{
 	#	cidr_block = var.VPC_B_privatesCIDRblock
 		#gateway_id = var.VPC_B_defaultGTWprivates
 	#}
+	tags = {
+    Name = "Roteamento Privado VPC B"
+}
 }
 #######################################################
 #ASSOCIAÇÃO DAS TABELAS DE ROTEAMENTO AS SUBREDES
@@ -236,6 +247,9 @@ resource "aws_route_table" "route_VPC_C_public-pb"{
 	#	cidr_block = var.VPC_C_publicsCIDRblock
 		#gateway_id = var.VPC_C_defaultGTWpublics
 	#}
+	tags = {
+    Name = "Roteamento Publico VPC C"
+}
 }
 resource "aws_route_table" "route_VPC_C_private-pv"{
 	vpc_id = aws_vpc.VPC_C.id
@@ -244,6 +258,9 @@ resource "aws_route_table" "route_VPC_C_private-pv"{
 	#	cidr_block = var.VPC_C_privatesCIDRblock
 	#	#gateway_id = var.VPC_C_defaultGTWprivates
 	#}
+	tags = {
+    Name = "Roteamento Privado VPC C"
+}
 }
 #######################################################
 #ASSOCIAÇÃO DAS TABELAS DE ROTEAMENTO AS SUBREDES
