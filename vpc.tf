@@ -54,7 +54,7 @@ resource "aws_route_table" "route_VPC_A_public-pb"{
 	
 	route {
 		cidr_block = var.VPC_A_publicsCIDRblock
-		gateway_id = var.VPC_A_defaultGTWpublics
+		#gateway_id = var.VPC_A_defaultGTWpublics
 	}
 }
 resource "aws_route_table" "route_VPC_A_private-pv"{
@@ -62,7 +62,7 @@ resource "aws_route_table" "route_VPC_A_private-pv"{
 	
 	route {
 		cidr_block = var.VPC_A_privatesCIDRblock
-		gateway_id = var.VPC_A_defaultGTWprivates
+		#gateway_id = var.VPC_A_defaultGTWprivates
 	}
 }
 ##############################################################
@@ -142,7 +142,7 @@ resource "aws_route_table" "route_VPC_B_public-pb"{
 	
 	route {
 		cidr_block = var.VPC_B_publicsCIDRblock
-		gateway_id = var.VPC_B_defaultGTWpublics
+		#gateway_id = var.VPC_B_defaultGTWpublics
 	}
 }
 resource "aws_route_table" "route_VPC_B_private-pv"{
@@ -150,7 +150,7 @@ resource "aws_route_table" "route_VPC_B_private-pv"{
 	
 	route {
 		cidr_block = var.VPC_B_privatesCIDRblock
-		gateway_id = var.VPC_B_defaultGTWprivates
+		#gateway_id = var.VPC_B_defaultGTWprivates
 	}
 }
 #######################################################
@@ -230,7 +230,7 @@ resource "aws_route_table" "route_VPC_C_public-pb"{
 		
 	route {
 		cidr_block = var.VPC_C_publicsCIDRblock
-		gateway_id = var.VPC_C_defaultGTWpublics
+		#gateway_id = var.VPC_C_defaultGTWpublics
 	}
 }
 resource "aws_route_table" "route_VPC_C_private-pv"{
@@ -238,7 +238,7 @@ resource "aws_route_table" "route_VPC_C_private-pv"{
 	
 	route {
 		cidr_block = var.VPC_C_privatesCIDRblock
-		gateway_id = var.VPC_C_defaultGTWprivates
+		#gateway_id = var.VPC_C_defaultGTWprivates
 	}
 }
 #######################################################
