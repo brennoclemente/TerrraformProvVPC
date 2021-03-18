@@ -35,7 +35,7 @@ resource "aws_vpn_connection" "vpn_connection_main" {
   vpn_gateway_id      = aws_vpn_gateway.vpn_gateway_main.id
   #customer_gateway_id = aws_customer_gateway.the_customer_gateway.id
   type                = "ipsec.1"
-  static_routes_only  = var.static_routes_only
+  static_routes_only  = true
 
 	tags = {
     Name = "vpn_connection_main"
