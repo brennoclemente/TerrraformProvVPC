@@ -15,7 +15,8 @@ resource "aws_ec2_transit_gateway" "tgw-vpc-main" {
 # VPC attachment
 
 resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-att-vpc-A" {
-  subnet_ids         = ["${aws_subnet.VPC_A_publicsCIDRblock.id}", "${aws_subnet.VPC_A_privatesCIDRblock.id}", "${aws_subnet.VPC_A_dmzCIDRblock.id}"]
+	#Alterado a linha abaixo onde chamava-se VPC_A_publicsCIDRblock para realmente o id da subrede "VPC_A_subnet-db"
+  subnet_ids         = ["${aws_subnet.VPC_A_subnet-pb.id}", "${aws_subnet.VPC_A_subnet-pv.id}", "${aws_subnet.VPC_A_subnet-db.id}"]
   transit_gateway_id = "${aws_ec2_transit_gateway.tgw-vpc-main.id}"
   vpc_id             = "${aws_vpc.VPC_A.id}"
   transit_gateway_default_route_table_association = false
