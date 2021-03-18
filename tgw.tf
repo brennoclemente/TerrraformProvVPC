@@ -52,9 +52,9 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-att-vpc-C" {
   depends_on = ["aws_ec2_transit_gateway.tgw-vpc-main"]
 }
 
-
-# Route Tables
-
+###################################################
+# CRIAÇÃO DAS ROUTES TABLES
+###################################################
 resource "aws_ec2_transit_gateway_route_table" "tgw-public-rt" {
   transit_gateway_id = "${aws_ec2_transit_gateway.tgw-vpc-main.id}"
   tags               = {
@@ -80,9 +80,9 @@ resource "aws_ec2_transit_gateway_route_table" "tgw-dmz-rt" {
 }
 
 
-
-# Route Tables Associations
-
+#######################################
+# ASSOCIAÇÃO DAS TABELAS DE ROTEAMENTO
+#######################################
 resource "aws_ec2_transit_gateway_route_table_association" "tgw-rt-vpc-A-assoc" {
   transit_gateway_attachment_id  = "${aws_ec2_transit_gateway_vpc_attachment.tgw-att-vpc-A.id}"
   transit_gateway_route_table_id = "${aws_ec2_transit_gateway_route_table.tgw-public-rt.id}"
@@ -97,8 +97,9 @@ resource "aws_ec2_transit_gateway_route_table_association" "tgw-rt-vpc-C-assoc" 
   transit_gateway_attachment_id  = "${aws_ec2_transit_gateway_vpc_attachment.tgw-att-vpc-C.id}"
   transit_gateway_route_table_id = "${aws_ec2_transit_gateway_route_table.tgw-dmz-rt.id}"
 }
-
-# Route Tables Propagations
+######################################
+# PROPAGAÇÃO DAS TABELAS DE ROTEAMENTO
+######################################
 
 resource "aws_ec2_transit_gateway_route_table_propagation" "tgw-rt-public-to-vpc-A" {
   transit_gateway_attachment_id  = "${aws_ec2_transit_gateway_vpc_attachment.tgw-att-vpc-A.id}"

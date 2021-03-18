@@ -4,5 +4,3 @@ provider "aws" {
 	secret_key = "${var.chavesecreta}"
 }
 #ATUALIZADO
-#
-#

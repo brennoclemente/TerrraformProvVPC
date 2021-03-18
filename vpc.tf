@@ -46,9 +46,9 @@ tags = {
    Name = "DMZ subnet VPC A"
 }
 }
-##############################################################
+#################################################################
 #CRIAÇÃO DA TABELA DE ROTEAMENTO DAS SUBREDES PUBLICAS E PRIVADAS
-##############################################################
+#################################################################
 resource "aws_route_table" "route_VPC_A_public-pb"{
 	vpc_id = aws_vpc.VPC_A.id
 	

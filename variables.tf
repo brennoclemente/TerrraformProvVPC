@@ -29,10 +29,10 @@ variable "chavesecreta" {
 	type = string
 }
 
-variable "IDConta" {
-	description = "Digitar ID da conta"
-	type = number
-}
+#variable "IDConta" {
+#	description = "Digitar ID da conta"
+#	type = number
+#}
 
 ####################################################################################
 #Variaveis para o VPC A
