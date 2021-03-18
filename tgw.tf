@@ -84,17 +84,17 @@ resource "aws_ec2_transit_gateway_route_table" "tgw-dmz-rt" {
 # Route Tables Associations
 
 resource "aws_ec2_transit_gateway_route_table_association" "tgw-rt-vpc-A-assoc" {
-  transit_gateway_attachment_id  = "${aws_ec2_transit_gateway_vpc_attachment.tgw-att-vpc-1.id}"
+  transit_gateway_attachment_id  = "${aws_ec2_transit_gateway_vpc_attachment.tgw-att-vpc-A.id}"
   transit_gateway_route_table_id = "${aws_ec2_transit_gateway_route_table.tgw-public-rt.id}"
 }
 
 resource "aws_ec2_transit_gateway_route_table_association" "tgw-rt-vpc-B-assoc" {
-  transit_gateway_attachment_id  = "${aws_ec2_transit_gateway_vpc_attachment.tgw-att-vpc-2.id}"
+  transit_gateway_attachment_id  = "${aws_ec2_transit_gateway_vpc_attachment.tgw-att-vpc-B.id}"
   transit_gateway_route_table_id = "${aws_ec2_transit_gateway_route_table.tgw-private-rt.id}"
 }
 
 resource "aws_ec2_transit_gateway_route_table_association" "tgw-rt-vpc-C-assoc" {
-  transit_gateway_attachment_id  = "${aws_ec2_transit_gateway_vpc_attachment.tgw-att-vpc-3.id}"
+  transit_gateway_attachment_id  = "${aws_ec2_transit_gateway_vpc_attachment.tgw-att-vpc-C.id}"
   transit_gateway_route_table_id = "${aws_ec2_transit_gateway_route_table.tgw-dmz-rt.id}"
 }
 
