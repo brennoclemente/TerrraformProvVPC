@@ -85,7 +85,7 @@ resource "aws_ec2_transit_gateway_route_table" "tgw-dmz-rt" {
 
 resource "aws_ec2_transit_gateway_route_table_association" "tgw-rt-vpc-A-assoc" {
   transit_gateway_attachment_id  = "${aws_ec2_transit_gateway_vpc_attachment.tgw-att-vpc-1.id}"
-  transit_gateway_route_table_id = "${aws_ec2_transit_gateway_route_table.tgw-public-main.id}"
+  transit_gateway_route_table_id = "${aws_ec2_transit_gateway_route_table.tgw-public-rt.id}"
 }
 
 resource "aws_ec2_transit_gateway_route_table_association" "tgw-rt-vpc-B-assoc" {
