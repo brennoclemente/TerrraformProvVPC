@@ -1,9 +1,8 @@
 ###########################
 # Transit Gateway Section #
-###########################
-
-# Transit Gateway
-
+#############################
+# CRIAÇÃO DO TRANSIT GATEWAY#
+#############################
 resource "aws_ec2_transit_gateway" "tgw-vpc-main" {
   default_route_table_association = "disable"
   default_route_table_propagation = "disable"
@@ -11,9 +10,9 @@ resource "aws_ec2_transit_gateway" "tgw-vpc-main" {
     Name                          = "tgw-vpc-main"
   }
 }
-
-# VPC attachment
-
+##############################################################
+# ASSOCIAÇÃO DO TGW AO VPC
+##############################################################
 resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-att-vpc-A" {
 	#Alterado a linha abaixo onde chamava-se VPC_A_publicsCIDRblock para realmente o id da subrede "VPC_A_subnet-db" 
   subnet_ids         = ["${aws_subnet.VPC_A_subnet-pb.id}", "${aws_subnet.VPC_A_subnet-pv.id}", "${aws_subnet.VPC_A_subnet-db.id}"]
@@ -57,9 +56,9 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-att-vpc-C" {
 # Route Tables
 
 resource "aws_ec2_transit_gateway_route_table" "tgw-public-rt" {
-  transit_gateway_id = "${aws_ec2_transit_gateway.tgw-vpc-rt.id}"
+  transit_gateway_id = "${aws_ec2_transit_gateway.tgw-vpc-main.id}"
   tags               = {
-    Name             = "tgw-vpc-rt"
+    Name             = "tgw-public-rt"
   }
   depends_on = ["aws_ec2_transit_gateway.tgw-vpc-main"]
 }
@@ -79,6 +78,9 @@ resource "aws_ec2_transit_gateway_route_table" "tgw-dmz-rt" {
   }
   depends_on = ["aws_ec2_transit_gateway.tgw-vpc-main"]
 }
+
+
+
 # Route Tables Associations
 
 resource "aws_ec2_transit_gateway_route_table_association" "tgw-rt-vpc-A-assoc" {
