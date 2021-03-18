@@ -1,4 +1,6 @@
-# The virtual private gateway instance
+#######################################################
+# PROVISIONANDO A INSTANCIA DO GATEWAY VPN
+#######################################################
 resource "aws_vpn_gateway" "vpn_gateway_main" {
   availability_zone = "${var.region}${var.aws_availability_zone}"
 
@@ -6,15 +8,18 @@ resource "aws_vpn_gateway" "vpn_gateway_main" {
     Name = "vpn_gateway_main"
 }
 }
-
-# Attach the VPN gateway to the VPC
+#######################################################
+# ASSOCIANDO A INSTANCIA DE VPN AO VPC
+#######################################################
 resource "aws_vpn_gateway_attachment" "vpn_vpc_attachment" {
-  vpc_id         = var.VPC_A
+  vpc_id         = aws_vpc.VPC_A.id
   vpn_gateway_id = aws_vpn_gateway.vpn_gateway_main.id
 }
-
-# Automatically propagate routes between the VPN gateway and the
-# necessary route tables
+#######################################################
+# PROPAGAÇÃO AUTOMATICA DE ROTAS ENTRE ENTRE O VPN GATEWAY
+# E O VPC
+# NECESSÁRIO TABELA DE ROTEAMENTO
+#######################################################
 resource "aws_vpn_gateway_route_propagation" "the_route_propagation" {
   count = length(var.route_VPC_A_public-pb)
 
@@ -35,8 +40,9 @@ resource "aws_vpn_connection" "vpn_connection_main" {
     Name = "vpn_connection_main"
 }
 }
-
-# Create routes for traffic that should be routed through the tunnel
+#######################################################
+# CRIAÇÃO DE ROTAS PARA O TRAFEGO QUE DEVE ACONTECER DENTRO DO TUNEL
+#######################################################
 resource "aws_vpn_connection_route" "the_vpn_route" {
   count = length(var.remote_cidr_blocks)
 
