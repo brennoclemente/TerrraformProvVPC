@@ -28,6 +28,7 @@ resource "aws_vpn_gateway_route_propagation" "the_route_propagation" {
   route_table_id = aws_route_table.route_VPC_A_public-pb[count.index]
 }
 
+#ADICIONADO AO CÓDIGO COMO TESTE PARA EXECUÇÃO POR NECESSIDADE DO AWS VPN CONNECTION
 resource "aws_customer_gateway" "the_customer_gateway" {
   bgp_asn    = 65000
   ip_address = "172.0.0.1"
