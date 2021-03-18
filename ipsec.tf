@@ -25,7 +25,7 @@ resource "aws_vpn_gateway_route_propagation" "the_route_propagation" {
   count = length(aws_route_table.route_VPC_A_public-pb)
 
   vpn_gateway_id = aws_vpn_gateway.vpn_gateway_main.id
-  route_table_id = var.route_VPC_A_public-pb[count.index]
+  route_table_id = aws_route_table.route_VPC_A_public-pb[count.index]
 }
 
 
