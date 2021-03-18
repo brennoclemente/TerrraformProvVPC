@@ -21,7 +21,8 @@ resource "aws_vpn_gateway_attachment" "vpn_vpc_attachment" {
 # NECESSÁRIO TABELA DE ROTEAMENTO
 #######################################################
 resource "aws_vpn_gateway_route_propagation" "the_route_propagation" {
-  count = length(var.route_VPC_A_public-pb)
+	#alterei a linha abaixo de var. para aws_route_table. 
+  count = length(aws_route_table.route_VPC_A_public-pb)
 
   vpn_gateway_id = aws_vpn_gateway.vpn_gateway_main.id
   route_table_id = var.route_VPC_A_public-pb[count.index]
